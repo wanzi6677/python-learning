@@ -1,0 +1,146 @@
+#定义字典存储-key不能重复并且不能可变
+# dict1 = {"王林":675,"利姆湾":608,"虚李过":487,"韩立":689}
+
+
+# [添加] 字典名称[key] = value | 往指定字典中添加key-value键值对 | dict1["涛哥"] = 688
+# [删除] 字典名称.pop(key) | 删除字典中指定的key，并返回该key对应的value | score = dict1.pop("涛哥")
+# [删除] del 字典名称[key] | 删除字典中指定的键值对 | del dict1["涛哥"]
+# [修改] 字典名称[key] = value | 修改字典中指定的key对应的值 | dict1["小智"] = 658
+# [查询] 字典名称[key] | 根据key获取value | dict1["涛哥"]
+# [查询] 字典名称.get(key) | 根据key获取value | dict1.get("涛哥")
+# [查询] 字典名称.keys() | 获取所有的key | dict1.keys()
+# [查询] 字典名称.values() | 获取所有的value | dict1.values()
+# [查询] 字典名称.items() | 获取所有的key-value键值对 | dict1.items()
+
+# print(dict1.keys())
+# print(dict1.values())
+# print(dict1.items())
+
+#******数据结构*****：shopping_cart = {"name":{"price":价格,"num":数量}}
+# print("欢迎使用购物车管理系统！\n")
+# print("######### 购物车系统 #########")
+# print("#       1.添加购物车         #")
+# print("#       2.修改购物车         #")
+# print("#       3.删除购物车         #")
+# print("#       4.查询购物车         #")
+# print("#       5.退出购物车         #")
+# print("############################")
+#
+#
+# shopping_cart = dict()
+#
+# while(True):
+#     print("######### 购物车系统 #########")
+#     print("#       1.添加购物车         #")
+#     print("#       2.修改购物车         #")
+#     print("#       3.删除购物车         #")
+#     print("#       4.查询购物车         #")
+#     print("#       5.退出购物车         #")
+#     print("############################")
+#     num = input("请选择要执行的操作(1-5):")
+#     match num:
+#         case "1":
+#             goods_name = input("请输入商品名称：")
+#             goods_price = float(input("请输入商品价格："))
+#             goods_num = int(input("请输入商品数量："))
+#             if(goods_name in shopping_cart):
+#                 print("商品已存在，请重新选择")
+#             else:
+#                 shopping_cart[goods_name] = {"price": goods_price, "num": goods_num}
+#                 print("商品已经添加完毕")
+#         case "2":
+#             goods_name = input("请输入要修改的商品名称：")
+#             goods_price = float(input("请输入最新的商品价格："))
+#             goods_num = int(input("请输入最新的商品数量："))
+#             if(goods_name not in shopping_cart):
+#                 print("商品不存在，请重新输入")
+#             else:
+#                 shopping_cart[goods_name] = {"price": goods_price, "num": goods_num}
+#                 print("商品已经添加完毕")
+#
+#
+#         case "3":
+#             goods_name = input("请输入要删除的商品名称：")
+#             del shopping_cart[goods_name]
+#
+#         case "4":
+#             print(f"你现在的购物车情况是{shopping_cart.items()}")
+#
+#         case "5":
+#             print("已经为您退出购物车，欢迎下次使用！")
+#             break
+#         case _:
+#             print("非法操作不支持")
+#
+
+print("欢迎使用教务管理系统！\n")
+print("#########                                   【菜单】                                            #########")
+print("#       1.添加学生信息  2.修改学生信息  3.删除学生信息  4.查询学生信息  5.列出所有学生  6.统计班级成绩  7.退出系统      #")
+print("########################################################################################################")
+
+
+student = dict()
+
+while(True):
+    print("#########                                   【菜单】                                            #########")
+    print(
+        "#       1.添加学生信息  2.修改学生信息  3.删除学生信息  4.查询学生信息  5.列出所有学生  6.统计班级成绩  7.退出系统      #")
+    print("########################################################################################################")
+    num = input("请选择要执行的操作(1-7):")
+    match num:
+        case "1":
+            students_name = input("请输入学生名称：")
+            student_ch = float(input("请输入语文成绩："))
+            student_ma = float(input("请输入数学成绩："))
+            student_en = float(input("请输入数学成绩："))
+            if(students_name in student):
+                print("学生已存在，请重新选择")
+            else:
+                student[students_name] = {"语文": student_ch, "数学": student_ma, "英语": student_en}
+                print(f"添加{students_name}完毕")
+        case "2":
+            students_name = input("请输入要修改的学生名称：")
+            student_ch = float(input("请输入最新的语文成绩："))
+            student_ma = float(input("请输入最新的数学成绩："))
+            student_en = float(input("请输入最新的英语成绩："))
+            if (students_name in student):
+                print("学生已存在，请重新选择")
+            else:
+                student[students_name] = {"语文": student_ch, "数学": student_ma, "英语": student_en}
+                print(f"添加{students_name}完毕")
+
+
+        case "3":
+            students_name = input("请输入要删除的学生姓名：")
+            del student[students_name]
+            print(f"删除{students_name}完毕")
+
+        case "4":
+            students_name = input("请输入要查询的学生姓名：")
+            print(f"{students_name}的信息是{student.get(students_name)}")
+
+        case "5":
+            print(f"所有学生的信息情况是{student.items()}")
+        case "6":
+            if not student:
+                print("暂无学生信息，请先添加学生")
+            else:
+                # 统计三科的最高分、最低分
+                for subject in ["语文", "数学", "英语"]:
+                    max_name = max(student, key=lambda name: student[name][subject])
+                    min_name = min(student, key=lambda name: student[name][subject])
+                    print(f"{subject} 最高分：{student[max_name][subject]}（{max_name}）")
+                    print(f"{subject} 最低分：{student[min_name][subject]}（{min_name}）")
+
+                # 统计三科平均分
+                for subject in ["语文", "数学", "英语"]:
+                    avg = sum(student[name][subject] for name in student) / len(student)
+                    print(f"{subject} 平均分：{avg:.2f}")
+        case "7":
+            print("已经成功退出，欢迎下次使用！！")
+            break
+        case _:
+            print("非法操作不支持")
+
+
+

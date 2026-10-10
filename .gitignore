@@ -1,0 +1,29 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ---- 虚拟环境（最重要：否则会提交上万个文件）----
+.venv/
+venv/
+env/
+ENV/
+
+# ---- IDE ----
+.idea/
+.vscode/
+*.iml
+
+# ---- Jupyter ----
+.ipynb_checkpoints/
+
+# ---- 不包含的内容 ----
+数独/
+
+# ---- 系统 ----
+.DS_Store
+Thumbs.db
+
+# ---- 日志 ----
+*.log
