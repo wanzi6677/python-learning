@@ -15,7 +15,7 @@ import pandas as pd
 from pandas import read_csv, to_datetime
 
 RAW_FILE = "raw_stock.csv"
-CLEAN_FILE = "clean_stock_moxie.csv"   # 用新文件名，避免占用问题
+CLEAN_FILE = "clean_stock_moxie.csv"  # 用新文件名，避免占用问题
 def load_and_clean(path=RAW_FILE):
     """
     读入 CSV 并清洗，返回干净的 DataFrame。要求：
