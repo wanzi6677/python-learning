@@ -49,7 +49,6 @@ def load_and_clean(path=RAW_FILE):
     df = df[df["收盘价"] > 0]
     df = df.sort_values("日期").reset_index(drop=True)
     return df[["日期", "收盘价", "成交额"]]
-    raise NotImplementedError("任务 1 还没写")
 
 
 def calc_indicators(df):
@@ -72,7 +71,7 @@ def calc_indicators(df):
     return {
         "总收益率": total_return,
         "日收益率波动率": daily_return_std,
-        "最大回撤": max_drawdown,
+        "最大回撤": max_drawdown
     }
 
 
@@ -85,6 +84,6 @@ if __name__ == "__main__":
     clean = load_and_clean()
     print(clean)
     print()
-    print(calc_indicators(clean))
+    print(f"{calc_indicators(clean)}")
     save_clean(clean)
     print(f"\n已保存到 {CLEAN_FILE}")
