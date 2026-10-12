@@ -28,6 +28,18 @@ def run(symbol, start_date="20240101", end_date="20241231"):
         print(f"  {k:<14}{v:.2f} %")
     return result
 
+def run_many(symbols, start_date="20240101", end_date="20241231"):
+    rows = []
+    for symbol in symbols:              # ← 循环拿每一只
+        result = run(symbol, start_date, end_date)           # ← 复用 run!想想传哪三个参数
+        result["symbol"] = symbol             # ← 补上股票代码这一列
+        rows.append(result)             # ← 一行一个 dict,攒起来
+    # 打印表格
+    print(f"{'股票':<10}{'总收益率':<10}{'日波动率':<10}{'最大回撤':<10}")
+    for row in rows:
+        print(f"{row['symbol']:<10}{row['总收益率']:>8.2f} %{row['日收益率波动率']:>8.2f} %{row['最大回撤']:>8.2f} %")    # ← 自己填
+    return rows
+
 
 if __name__ == "__main__":
-    run("sz000001")
+    run_many(["sz000001", "sh600519", "sh601318"])
