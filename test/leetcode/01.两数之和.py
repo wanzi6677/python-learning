@@ -10,12 +10,11 @@ def two_sum(nums, target):
     #             return [i, j]
 
     #解法二（哈希表）
-    seen = {}  # 记事本:{数字: 下标}
+    seen = {}
     for i in range(len(nums)):
         need = target - nums[i]
-        idx = seen.get(need)
-        if idx is not None:
-            return [idx, i]
+        if need in seen:
+            return [seen[need], i]
         else:
             seen[nums[i]] = i
 
