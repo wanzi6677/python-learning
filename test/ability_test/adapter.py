@@ -1,7 +1,6 @@
 import pandas as pd
 
 def to_standard(df):
-    # 如果已经是标准格式，直接返回
     """
         把 akshare(新浪源) 的 DataFrame 转成标准格式。
 
@@ -17,7 +16,6 @@ def to_standard(df):
     if set(["日期", "收盘价", "成交额"]).issubset(df.columns):
         return df
 
-    # >>> 你来写 <<<
     df["日期"] = df["date"].rename("日期")
     df["收盘价"] = df["close"].rename("收盘价")
     df["成交额"] = df["amount"].rename("成交额")
