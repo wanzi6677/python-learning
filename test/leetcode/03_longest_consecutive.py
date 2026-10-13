@@ -74,21 +74,22 @@ class Solution(object):
         # 如果x - 1不在，说明x是一个连续序列的起点。
         # 从x开始，不断检查x + 1、x + 2……是否在set里。
         # 统计这轮长度，更新最大值。
+        nums_set = set(nums)
         if not nums:
             return 0
-        set_nums = set(nums)
-        longest_streak = 0
-        for x in set_nums:
-            if x-1 in set_nums:
+        else:
+            longest_streak = 0
+        for x in nums_set:
+            if x - 1 in nums_set:
                 continue
             else:
                 current_streak = 1
-                while x+1 in set_nums:
-                    current_streak+=1
-                    x+=1
+                while x + 1 in nums_set:
+                    current_streak += 1
+                    x += 1
                 longest_streak = max(longest_streak, current_streak)
 
-        return longest_streak  # 记得返回结果
+            return longest_streak  # 记得返回结果
 
 
 if __name__ == '__main__':
