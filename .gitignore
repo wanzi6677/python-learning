@@ -1,4 +1,4 @@
-# ---- Python ----
+﻿# ---- Python ----
 __pycache__/
 *.py[cod]
 *$py.class
@@ -27,3 +27,7 @@ Thumbs.db
 
 # ---- 日志 ----
 *.log
+
+# ---- 数据库产物(SQLite 库可由 db.py 重新生成)----
+*.db
+*.db-journal
